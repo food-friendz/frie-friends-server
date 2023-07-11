@@ -1,0 +1,50 @@
+[
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "info@pastahouse.com",
+        "password": "pasta123"
+    },
+    {
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "contact@spicefusion.com",
+        "password": "spice456"
+    },
+    {
+        "firstName": "Michael",
+        "lastName": "Johnson",
+        "email": "hello@lapizzeria.com",
+        "password": "pizza789"
+    },
+    {
+        "firstName": "Emily",
+        "lastName": "Brown",
+        "email": "info@sushidelight.com",
+        "password": "sushi321"
+    },
+    {
+        "firstName": "David",
+        "lastName": "Wilson",
+        "email": "contact@thesteakhouse.com",
+        "password": "steak987"
+    },
+    {
+        "firstName": "Sarah",
+        "lastName": "Taylor",
+        "email": "info@tacofiesta.com",
+        "password": "taco567"
+    },
+    {
+        "firstName": "Jessica",
+        "lastName": "Lee",
+        "email": "hello@cafebistro.com",
+        "password": "cafe123"
+    },
+    {
+        "firstName": "Ryan",
+        "lastName": "Anderson",
+        "email": "info@thaiparadise.com",
+        "password": "thai456"
+    }
+]
