@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const restaurantSchema = new mongoose.Schema({
 name: {
     type: String,
@@ -28,4 +27,3 @@ name: {
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);
-  
