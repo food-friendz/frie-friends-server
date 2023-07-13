@@ -1,44 +1,28 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
-const secret = "mysecretsshhhhh";
-const expiration = "2h";
-
-const nonAuthRoutes = ["/login", "/signup", "/"];
-
-const requiresTokenCheck = (path) => path && !nonAuthRoutes.includes(path);
+const secret = 'mysecretsshhhhh';
+const expiration = '2h';
 
 module.exports = {
   authMiddleware: function ({ req }) {
-    const path = req.path;
-    // if route is non-auth, return req
-    const requiredTokenCheckResult = requiresTokenCheck(path);
-
-    if (path !== "/") {
-      console.log({ path, requiredTokenCheckResult });
-    }
-
-    if (requiredTokenCheckResult === false) {
-      return req;
-    }
-
-    console.log({path, requiredTokenCheckResult});
-
     // allows token to be sent via req.body, req.query, or headers
-    let token = req.body.token || req.query.token || req.headers.authorization;
+    let token = req.body.token || req.query.token ;
 
     // ["Bearer", "<tokenvalue>"]
-    if (req.headers.authorization) {
-      token = token.split(" ").pop().trim();
+    if (!token &&req.headers.authorization) {
+      token = req.headers.authorization.split(' ').pop().trim();
     }
 
     if (!token) {
-      // if no token, return no token error
-      console.log("No token found", { token });
-      throw new Error("No token found");
+      return req;
     }
 
-    const { data } = jwt.verify(token, secret, { maxAge: expiration });
-    req.user = data;
+    try {
+      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      req.user = data;
+    } catch {
+      console.log('Invalid token');
+    }
 
     return req;
   },
@@ -47,4 +31,10 @@ module.exports = {
 
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
+  authorizeCheck: function (context) {
+    if (!context?.user) {
+      throw new Error('Not authorized');
+    }
+  }
+
 };

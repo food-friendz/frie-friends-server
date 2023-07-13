@@ -38,6 +38,7 @@ const resolvers = {
       }
     },
     users: async (parent, data, ctx) => {
+      auth.authorizeCheck(ctx);
       try {
         const users = await User.find();
         return users;
