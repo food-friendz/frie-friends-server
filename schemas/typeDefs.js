@@ -14,6 +14,12 @@ const typeDefs = gql`
     email: String
     address: String
     phoneNumber: String
+    // user: User!
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type User {
@@ -44,6 +50,7 @@ const typeDefs = gql`
     createUser(firstName: String!, lastName: String!, email: String!, password: String!): User
     updateUser(_id: ID!, firstName: String, lastName: String, email: String, password: String): User
     deleteUser(_id: ID!): User
+    login(email: String!, password: String!): Auth
   }
 `;
 
