@@ -23,8 +23,15 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5
-  }
+    minlength: 5,
+  },
+  //validate the account type to be either user or restaurant
+  // accountType: {
+  //   type: String,
+  //   required: true,
+  //   default: "user",
+  //   enum: ["user", "restaurant"],
+  // },
 });
 
 userSchema.pre("save", async function (next) {

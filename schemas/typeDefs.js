@@ -14,7 +14,6 @@ const typeDefs = gql`
     email: String
     address: String
     phoneNumber: String
-    // user: User!
   }
 
   type Auth {
@@ -28,7 +27,7 @@ const typeDefs = gql`
     lastName: String
     email: String
     password: String
-    
+    accountType: String,
   }
 
   type Query {
@@ -47,7 +46,7 @@ const typeDefs = gql`
     createRestaurant(name: String!, description: String!, email: String!, address: String!, phoneNumber: String): Restaurant
     updateRestaurant(_id: ID!, name: String, description: String, email: String, address: String, phoneNumber: String): Restaurant
     deleteRestaurant(_id: ID!): Restaurant
-    createUser(firstName: String!, lastName: String!, email: String!, password: String!): User
+    createUser(firstName: String!, lastName: String!, email: String!, password: String!,accountType: String!): User
     updateUser(_id: ID!, firstName: String, lastName: String, email: String, password: String): User
     deleteUser(_id: ID!): User
     login(email: String!, password: String!): Auth
