@@ -23,6 +23,13 @@ name: {
     type: String,
     trim: true,
   },
+
+  // restaurant owner, validate the user is set
+  // user: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true,
+  // },
  
 });
 
