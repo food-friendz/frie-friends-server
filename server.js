@@ -26,7 +26,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  // res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  res.redirect(process.env.CLIENT_URI ?? "http://localhost:3000");
 });
 
 // Create a new instance of an Apollo server with the GraphQL schema
